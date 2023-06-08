@@ -1,6 +1,7 @@
 package dataAccess;
 
 import java.io.File;
+import java.util.ArrayList;
 //hello
 import java.util.Calendar;
 import java.util.Date;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Locale;
 
 import java.util.ResourceBundle;
-import java.util.Vector;
+
 
 
 
@@ -130,34 +131,34 @@ public class DataAccess implements DataAccessInterface {
 			}
 			
 			
-			session.persist(q1);
-			session.persist(q2);
-			session.persist(q3);
-			session.persist(q4);
-			session.persist(q5);
-			session.persist(q6);
+			session.save(q1);
+			session.save(q2);
+			session.save(q3);
+			session.save(q4);
+			session.save(q5);
+			session.save(q6);
 	
 	        
-			session.persist(ev1);
-			session.persist(ev2);
-			session.persist(ev3);
-			session.persist(ev4);
-			session.persist(ev5);
-			session.persist(ev6);
-			session.persist(ev7);
-			session.persist(ev8);
-			session.persist(ev9);
-			session.persist(ev10);
-			session.persist(ev11);
-			session.persist(ev12);
-			session.persist(ev13);
-			session.persist(ev14);
-			session.persist(ev15);
-			session.persist(ev16);
-			session.persist(ev17);
-			session.persist(ev18);
-			session.persist(ev19);
-			session.persist(ev20);			
+			session.save(ev1);
+			session.save(ev2);
+			session.save(ev3);
+			session.save(ev4);
+			session.save(ev5);
+			session.save(ev6);
+			session.save(ev7);
+			session.save(ev8);
+			session.save(ev9);
+			session.save(ev10);
+			session.save(ev11);
+			session.save(ev12);
+			session.save(ev13);
+			session.save(ev14);
+			session.save(ev15);
+			session.save(ev16);
+			session.save(ev17);
+			session.save(ev18);
+			session.save(ev19);
+			session.save(ev20);			
 			
 			session.getTransaction().commit();
 			System.out.println("Db initialized");
@@ -196,11 +197,12 @@ public class DataAccess implements DataAccessInterface {
 			
 			//db.getTransaction().begin();
 			Question q2 = ev.addQuestion(question, betMinimum);
-			//db.persist(q);
-			//db.persist(ev); // db.persist(q) not required when CascadeType.PERSIST is added in questions property of Event class
-							// @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+			//db.save(q);
+			//db.save(ev); // db.save(q) not required when CascadeType.save is added in questions property of Event class
+							// @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.save)
 			//db.getTransaction().commit();
-			session.persist(ev);
+			session.save(q2);
+			session.save(ev);
 			session.getTransaction().commit(); 
 			return q2;
 		
@@ -212,7 +214,7 @@ public class DataAccess implements DataAccessInterface {
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
-	public Vector<Event> getEvents(Date date) {
+	public List<Event> getEvents(Date date) {
 		
 		System.out.println(">> DataAccess: getEvents");
 		
@@ -221,7 +223,7 @@ public class DataAccess implements DataAccessInterface {
 
 		
 		
-		Vector<Event> res = new Vector<Event>();
+		List<Event> res = new ArrayList<Event>();
 		
 		///////////////////
 		Query q =session.createQuery("from Event ev where eventDate:=data");
@@ -242,13 +244,13 @@ public class DataAccess implements DataAccessInterface {
 	 * @param date of the month for which days with events want to be retrieved 
 	 * @return collection of dates
 	 */
-	public Vector<Date> getEventsMonth(Date date) {
+	public List<Date> getEventsMonth(Date date) {
 		
 		System.out.println(">> DataAccess: getEventsMonth");
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction(); 
 		
-		Vector<Date> res = new Vector<Date>();	
+		List<Date> res = new ArrayList<Date>();	
 		
 		Date firstDayMonthDate= UtilDate.firstDayMonth(date);
 		Date lastDayMonthDate= UtilDate.lastDayMonth(date);
@@ -266,7 +268,7 @@ public class DataAccess implements DataAccessInterface {
 	 	session.getTransaction().commit();  
 	 	return res;
 	}
-	
+/*	
 @Override
 public void open(){
 	
@@ -288,10 +290,11 @@ public void open(){
 
 			  db = emf.createEntityManager();
     	   }
-		*/
+		
 		HibernateUtil.getSessionFactory().openSession();
 		
 	}
+	*/
 
 public boolean existQuestion(Event event, String question) {
 	
@@ -312,6 +315,7 @@ public boolean existQuestion(Event event, String question) {
 	
 	
 }
+/*
 	public void close(){
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.close();
@@ -320,7 +324,7 @@ public boolean existQuestion(Event event, String question) {
 		
 	}
 
-	
+	*/
 
 	@Override
 	public void emptyDatabase() {

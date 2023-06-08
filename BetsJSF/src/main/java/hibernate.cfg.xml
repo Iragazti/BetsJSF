@@ -5,14 +5,13 @@
  <session-factory name="">
   <property name="hibernate.connection.driver_class">org.mariadb.jdbc.driver</property>
   <property name="hibernate.connection.password">admin</property>
-  <property name="hibernate.connection.url">jdbc:mariadb://localhost/eventos</property>
   <property name="hibernate.connection.username">root</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.connection.url">jdbc:mariadb://localhost/bets</property>
   <property name="hibernate.connection.pool_size">1</property>
   <property name="hibernate.connection.autocommit">false</property>
   <property name="hibernate.current_session_context_class">thread</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
-  <mapping class="modelo.dominio.HibernateClase"/>
   <mapping class="domain.Event"/>
   <mapping class="domain.Question"/>
  </session-factory>

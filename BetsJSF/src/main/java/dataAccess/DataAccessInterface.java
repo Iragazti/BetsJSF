@@ -1,6 +1,7 @@
 package dataAccess;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
 import domain.Event;
@@ -13,12 +14,12 @@ public interface DataAccessInterface {
 	/**
 	 * This method opens the database
 	 */
-	void open();
+	//void open();
 	
 	/**
 	 * This method closes the database
 	 */
-	void close();
+	//void close();
 
 	
 	/**
@@ -50,7 +51,7 @@ public interface DataAccessInterface {
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
-	Vector<Event> getEvents(Date date);
+	List<Event> getEvents(Date date);
 
 	/**
 	 * This method retrieves from the database the dates a month for which there are events
@@ -58,7 +59,7 @@ public interface DataAccessInterface {
 	 * @param date of the month for which days with events want to be retrieved 
 	 * @return collection of dates
 	 */
-	Vector<Date> getEventsMonth(Date date);
+	List<Date> getEventsMonth(Date date);
 
 	
 	/**

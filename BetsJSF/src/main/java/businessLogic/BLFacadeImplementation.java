@@ -1,12 +1,13 @@
 package businessLogic;
 //hola
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Vector;
 
 
 
-import configuration.ConfigXML;
+
+
 import dataAccess.DataAccessInterface;
 import domain.Question;
 import domain.Event;
@@ -37,10 +38,10 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
 		///ConfigXML c=ConfigXML.getInstance();
-		da.open();
+		
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
 		da.initializeDB();
-		da.close();
+	
 		dbManager=da;		
 	}
 	
@@ -59,7 +60,7 @@ public class BLFacadeImplementation  implements BLFacade {
    public Question createQuestion(Event event, String question, float betMinimum) throws EventFinished, QuestionAlreadyExist{
 	   
 	    //The minimum bed must be greater than 0
-		dbManager.open();
+		
 		Question qry=null;
 		
 	    
@@ -69,7 +70,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 		 qry=dbManager.createQuestion(event,question,betMinimum);		
 
-		dbManager.close();
+		
 		
 		return qry;
    };
@@ -81,10 +82,10 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @return collection of events
 	 */
     //@WebMethod	
-	public Vector<Event> getEvents(Date date)  {
-		dbManager.open();
-		Vector<Event>  events=dbManager.getEvents(date);
-		dbManager.close();
+	public List<Event> getEvents(Date date)  {
+		
+		List<Event>  events=dbManager.getEvents(date);
+		
 		return events;
 	}
 
@@ -96,22 +97,23 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @return collection of dates
 	 */
 	//@WebMethod 
-	public Vector<Date> getEventsMonth(Date date) {
-		dbManager.open();
-		Vector<Date>  dates=dbManager.getEventsMonth(date);
-		dbManager.close();
+	public List<Date> getEventsMonth(Date date) {
+		
+		List<Date>  dates=dbManager.getEventsMonth(date);
+		
 		return dates;
 	}
 	
-	
+	/*
 	public void close() {
 		//DataAccess dB4oManager=new DataAccess(false);
 
 		//dB4oManager.close();
-		dbManager.close();
+		
 
 
 	}
+	*/
 
 	/**
 	 * This method invokes the data access to initialize the database with some events and questions.
@@ -119,9 +121,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	 */	
    // @WebMethod	
 	 public void initializeBD(){
-    	dbManager.open();
+    	
 		dbManager.initializeDB();
-		dbManager.close();
+		
 	}
 
 }

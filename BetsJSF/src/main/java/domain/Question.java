@@ -3,10 +3,13 @@ package domain;
 import java.io.*;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Fetch;
 //import javax.xml.bind.annotation.XmlAccessType;
 //import javax.xml.bind.annotation.XmlAccessorType;
 //import javax.xml.bind.annotation.XmlIDREF;
 //import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.hibernate.annotations.FetchMode;
 
 
 @SuppressWarnings("serial")
@@ -16,13 +19,14 @@ public class Question implements Serializable {
 	
 	@Id 
 	//@XmlJavaTypeAdapter(IntegerAdapter.class)
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Integer questionNumber;
 	private String question; 
 	private float betMinimum;
 	private String result;  
 	//@XmlIDREF
-	@OneToOne
+	@ManyToOne(targetEntity=Event.class, cascade=CascadeType.PERSIST, fetch=FetchType.EAGER) 
+	@Fetch(value = FetchMode.JOIN)
 	private Event event;
 
 	public Question(){
