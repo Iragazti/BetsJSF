@@ -22,6 +22,7 @@ public class Question implements Serializable {
 	private float betMinimum;
 	private String result;  
 	//@XmlIDREF
+	@OneToOne
 	private Event event;
 
 	public Question(){

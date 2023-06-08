@@ -4,22 +4,19 @@ import java.io.File;
 //hello
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
+
 import java.util.ResourceBundle;
 import java.util.Vector;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import configuration.ConfigXML;
+
 import configuration.UtilDate;
 import domain.Event;
 import domain.Question;
