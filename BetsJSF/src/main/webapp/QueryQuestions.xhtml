@@ -24,8 +24,8 @@
 					</tr>
 					<tr>
 						<td>Events:</td>
-						<td><p:dataTable id="tablaPF" value="#{query.events}"
-								var="item" selectionMode="single" selection="#{query.event}"
+						<td><p:dataTable id="tablaPF" value="#{query.eventos}"
+								var="item" selectionMode="single" selection="#{query.evento}"
 								border="1" rowKey="#{item.getEventNumber()}">
 								<p:ajax event="rowSelect" listener="#{query.onEventSelect}"
 									update=":miForm:tabla"></p:ajax>

@@ -20,10 +20,10 @@ import exceptions.QuestionAlreadyExist;
 public class QueryQuestionsBean {
 	
 	private BLFacade blfacade;
-	private Date fecha;
+	private Date date;
 	
-	private Event event;
-	private List<Event> events = new ArrayList<Event>();
+	private Event evento;
+	private List<Event> eventos = new ArrayList<Event>();
 	
 	public Question question;
 	private List<Question> questions = new ArrayList<Question>();
@@ -35,54 +35,50 @@ public class QueryQuestionsBean {
 	public QueryQuestionsBean() {
 		this.blfacade = new BLFacadeImplementation(new DataAccess());
 	}
-	
-	////fecha
 
-	public Date getFecha() {
-		return fecha;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
-	///evento
-
-	public Event getEvento() {
-		return event;
-	}
-
-	public void setEvento(Event evento) {
-		this.event = evento;
-	}
-
-	public List<Event> getEventos() {
-		return events;
-	}
-
-	public void setEventos(List<Event> eventos) {
-		this.events = eventos;
-	}
 	
 	public List<Event> getEvents(Date date) {
 		return blfacade.getEvents(date);
 	}
-	
-	//pregunta
 
-	public Question getPregunta() {
+
+	public Event getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Event evento) {
+		this.evento = evento;
+	}
+
+	public List<Event> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(List<Event> eventos) {
+		this.eventos = eventos;
+	}
+
+	public Question getQuestion() {
 		return question;
 	}
 
-	public void setPregunta(Question question) {
+	public void setQuestion(Question question) {
 		this.question = question;
 	}
 
-	public List<Question> getPreguntas() {
+	public List<Question> getQuestions() {
 		return questions;
 	}
 
-	public void setPreguntas(List<Question> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 
@@ -93,16 +89,8 @@ public class QueryQuestionsBean {
 	public void setQuest(String quest) {
 		this.quest = quest;
 	}
-	
-	public List<Question> getQuestions(Event event) {
-		return event.getQuestions();
-	}
 
-	public Question createQuestion(Event evento, String desc, float min) throws EventFinished, QuestionAlreadyExist {
-		return blfacade.createQuestion(evento, desc, min);
-	}
-
-	///minimos
+	////minimo
 	
 	public float getMin() {
 		return min;
@@ -111,58 +99,79 @@ public class QueryQuestionsBean {
 	public void setMin(float min) {
 		this.min = min;
 	}
-	
+
 	///////
+	
+	public Question createQuestion(Event evento, String desc, float min) throws EventFinished, QuestionAlreadyExist {
+		return blfacade.createQuestion(evento, desc, min);
+	}
 
 	public void onDateSelect(SelectEvent event) {
-		this.event = null;
-		this.fecha = (Date) event.getObject();
-		setPreguntas(null);
-		setEventos(getEvents(fecha));
+		this.date = (Date) event.getObject();
+		setQuestions(null);
+		setEventos(getEventos());
+
 
 	}
 
-	public void onEventSelect(SelectEvent evento) {
-		this.questions = null;
-		this.event = (Event) evento.getObject();
-		setPreguntas(getQuestions(event));
+	public void onEventSelect(SelectEvent event) {
+		this.evento = (Event) event.getObject();
+		setQuestions(getQuestions());
 
 	}
 
-	/////crear pregunta
+	/////crear pregunta --> problemas: exite pregunta y evento
+	
+	private boolean esEventoValido() {
+		return evento != null;
+	}
+	
+	private boolean esDescripcionValida() {
+		return !quest.equals("");
+	}
+	private boolean esMinValido() {
+		return min != 0.0;
+	}
+	private boolean esPreguntaVacia() {
+		return question !=null;
+	}
 
-	public void crearPregunta() {
+	public String crearPregunta() throws EventFinished, QuestionAlreadyExist {
+		String ok="";
 		try {
-			if (event != null && !quest.equals("") && min != 0.0) {
-				question = createQuestion(event, quest, min);
-				reiniciar();
-				if (question != null) {
+			///evento pregunta y min valido --> crear pregunta
+			if (esEventoValido()&& esDescripcionValida()&& esMinValido()) {
+				question = createQuestion (evento, quest, min);
+				if (esPreguntaVacia()) {
+					ok="ok";
 					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage("PREGUNTA CREADA CORRECTAMENTE"));
-				} else
-					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERROR AL CREAR LA PREGUNTA"));
-			} else
+							 new FacesMessage("pregunta creada OK")); 
+				}
+				else {
+					ok="error";
+					FacesContext.getCurrentInstance().addMessage(null,
+							 new FacesMessage("error: pregunta NO creada")); 
+				}
+			} 
+			else {
+				ok="error";
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage("ELIGE UN EVENTO Y RELLENA TODOS LOS CAMPOS"));
+						 new FacesMessage("elige correctamente un evento")); 
+			}
+
+			
 		} catch (EventFinished e) {
-			// TODO Auto-generated catch block
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("EVENTO FINALIZADO"));
-		} catch (QuestionAlreadyExist e) {
-			// TODO Auto-generated catch block
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("LA PREGUNTA YA EXISTE"));
+			ok="error";
+			FacesContext.getCurrentInstance().addMessage(null,
+					 new FacesMessage("el evento ha finalizado")); 
+		} catch (QuestionAlreadyExist q) {
+			ok="error";
+			FacesContext.getCurrentInstance().addMessage(null,
+					 new FacesMessage("la pregunta existe con anterioridad")); 
 		}
-
+		return ok;
 	}
 
-	public void reiniciar() {
-		this.event = null;
-		this.events = null;
-		this.questions = null;
-		this.fecha = null;
-		this.min = (float) 0.0;
-		this.quest = "";
-	}
-	
-	
+
 
 }
