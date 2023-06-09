@@ -1,6 +1,6 @@
 package dataAccess;
 
-import java.io.File;
+
 import java.util.ArrayList;
 //hello
 import java.util.Calendar;
@@ -34,6 +34,8 @@ public class DataAccess implements DataAccessInterface {
 
 
 	//ConfigXML c=ConfigXML.getInstance();
+	
+	///error al borrar con el constructo, no eliminar
 
      public DataAccess(boolean initializeMode)  {
 		
@@ -325,10 +327,10 @@ public boolean existQuestion(Event event, String question) {
 	}
 
 	*/
-
+/*
 	@Override
 	public void emptyDatabase() {
-		/*
+		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
@@ -338,10 +340,10 @@ public boolean existQuestion(Event event, String question) {
 		f2.delete();
 		
 		session.getTransaction().commit(); 
-		*/
+		
 	}
 
-	
+	*/
 	
 }
 

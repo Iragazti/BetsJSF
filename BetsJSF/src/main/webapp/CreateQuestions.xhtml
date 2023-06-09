@@ -30,7 +30,7 @@
 								border="1" rowKey="#{item.getEventNumber()}">
 								<p:ajax event="rowSelect" listener="#{query.onEventSelect}"
 									update=":miForm:tabla"></p:ajax>
-								<f:facet name="header">Events:</f:facet>
+								<f:facet name="header">Eventos:</f:facet>
 								<p:column headerText="Code: ">#{item.getEventNumber()}</p:column>
 								<p:column headerText="Description: ">#{item.getDescription()}</p:column>
 							</p:dataTable></td>
@@ -69,7 +69,7 @@
 				<h:commandButton value="Create question"
 					action="#{query.crearPregunta}" />
 			</h:form>
-			<a href="Menu.xhtml"><h:commandButton value="Atrás" /></a>
+			<h:button value="Atrás" outcome="Menu.xhtml"/>
 		</h:body>
 	</f:view>
 </ui:composition>

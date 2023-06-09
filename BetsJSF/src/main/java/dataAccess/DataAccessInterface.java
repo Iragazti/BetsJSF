@@ -2,7 +2,7 @@ package dataAccess;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
+
 
 import domain.Event;
 import domain.Question;
@@ -25,7 +25,7 @@ public interface DataAccessInterface {
 	/**
 	 * This method removes all the elements of the database
 	 */
-	void emptyDatabase();
+	//void emptyDatabase();
 	
 	
 	/**

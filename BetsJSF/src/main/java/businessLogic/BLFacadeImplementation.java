@@ -125,6 +125,8 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.initializeDB();
 		
 	}
+	 
+	
 
 }
 

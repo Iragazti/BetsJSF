@@ -34,6 +34,8 @@ public class QueryQuestionsBean {
 	
 	public QueryQuestionsBean() {
 		this.blfacade = new BLFacadeImplementation(new DataAccess());
+		//this.eventos = new ArrayList<Event>();
+		//this.questions = new ArrayList<Question>();
 	}
 
 	public Date getDate() {
@@ -107,16 +109,25 @@ public class QueryQuestionsBean {
 	}
 
 	public void onDateSelect(SelectEvent event) {
+		this.evento=null;
 		this.date = (Date) event.getObject();
-		setQuestions(null);
-		setEventos(getEventos());
+		this.questions.clear();
+		this.eventos = getEvents(date);
+		//setQuestions(null);
+		//setEventos(getEventos());
 
+		printEventsandQuestions();
 
 	}
+	
+	
 
 	public void onEventSelect(SelectEvent event) {
+		//this.questions=null;
 		this.evento = (Event) event.getObject();
-		setQuestions(getQuestions());
+		//setQuestions(getQuestions());
+		this.questions.clear();
+		printEventsandQuestions();
 
 	}
 
@@ -172,6 +183,18 @@ public class QueryQuestionsBean {
 		return ok;
 	}
 
-
+	public void printEventsandQuestions(){
+		System.out.println("Eventos: ");
+		for (Event event: eventos) {
+			System.out.println("Event number: " + event.getEventNumber());
+			System.out.println("Event desc: " + event.getDescription());
+			
+		}
+		System.out.println("Preguntas:");
+		for(Question question:questions) {
+			System.out.println("Question number: "+ question.getQuestionNumber());
+			System.out.println("Question: "+question.getQuestion());
+		}
+	}
 
 }

@@ -40,7 +40,7 @@
 						<td>Questions: </td>
 					</tr>
 					<tr>
-						<td><h:dataTable id="tabla" value="#{query.preguntas}"
+						<td><h:dataTable id="tabla" value="#{query.questions}"
 								var="item" border="1">
 								<f:facet name="header">Questions :</f:facet>
 								<h:column>
@@ -52,7 +52,7 @@
 
 				</table>
 			</h:form>
-			<a href="Menu.xhtml"><h:commandButton value="Atrás" /></a>
+			<h:button value="Atrás" outcome="Menu.xhtml"/>
 		</h:body>
 	</f:view>
 </ui:composition>
