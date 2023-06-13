@@ -1,0 +1,15 @@
+
++domain.Event#getQuestions()Ljava/util/List;^
+TC:/Users/olari/git/proyectois2_jsf+hibernate/BetsJSF/src/main/java/domain/Event.java# #(#"1*˜
+1$	 $(e
+c
+$	 $(
+%0java.util.List"__id*;
+
+__unknown_file (*
+domain.Event"
+	questions""
+$ $(
+
+%0java.util.ListB
+domain.EventH

@@ -1,0 +1,106 @@
+
+(domain.Event#equals(Ljava/lang/Object;)Z^
+TC:/Users/olari/git/proyectois2_jsf+hibernate/BetsJSF/src/main/java/domain/Event.java ("startingBlock*%
+2
+à
+ à("
+
+à à(
+""*ﬁ
+3
+Ü Ü(b
+`
+
+Ü Ü(
+otherdomain.Event"__id*5
+
+__unknown_file (
+
+objjava.lang.Objectl
+j
+
+á á(
+%2java.lang.Integer"__id*=
+
+__unknown_file (!*
+domain.Event"
+eventNumbers
+q
+
+á á(&
+%3java.lang.Integer"__id*D
+
+__unknown_file ((*&
+
+otherdomain.Event"
+eventNumber*
+2
+1*ä
+startingBlock ("ä
+á
+~ ~(
+
+%4"
+__annotate*2
+
+__unknown_file (
+java.lang.Override*5
+
+__unknown_file (
+
+objjava.lang.ObjectW
+U
+ (!
+objjava.lang.Object"__annotation*"
+
+__unknown_file (
+
+%4*	
+5
+6
+8*%
+4
+Ö
+ Ö("
+
+Ö Ö(
+""*¬
+5
+Ñ Ñ(éã
+
+Ñ Ñ(
+%0java.lang.Class",java.lang.Object#getClass()Ljava/lang/Class;*,
+
+__unknown_file (
+domain.Event2
+getClass()óî
+
+Ñ Ñ("
+%1java.lang.Class",java.lang.Object#getClass()Ljava/lang/Class;*5
+
+__unknown_file (
+
+objjava.lang.Object2
+getClass()*
+3
+4*%
+6
+É
+ É("
+
+É É(
+""*%
+8
+Å
+ Å("
+
+Å Å(
+""*%
+1
+â	 â("
+
+â â(
+"":#
+ (!
+objjava.lang.ObjectB
+domain.EventHP

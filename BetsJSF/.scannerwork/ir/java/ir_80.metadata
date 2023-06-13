@@ -1,0 +1,4 @@
+modelo.bean.QueryQuestionsBean#onDateSelect(LSelectEvent;)V
+==
+printEventsandQuestions modelo.bean.QueryQuestionsBean#printEventsandQuestions()V
+getEvents modelo.bean.QueryQuestionsBean#getEvents(Ljava/util/Date;)Ljava/util/List;

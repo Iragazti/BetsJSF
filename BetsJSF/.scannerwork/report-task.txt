@@ -1,0 +1,7 @@
+organization=olarizu
+projectKey=BetsJSFVerification
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.42599
+dashboardUrl=https://sonarcloud.io/dashboard?id=BetsJSFVerification
+ceTaskId=AYi1cw5hOMORV1XTaSI8
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYi1cw5hOMORV1XTaSI8

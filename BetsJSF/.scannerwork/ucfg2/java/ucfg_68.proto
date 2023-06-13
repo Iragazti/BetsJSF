@@ -1,0 +1,40 @@
+
+amodelo.bean.QueryQuestionsBean#createQuestion(Ldomain/Event;Ljava/lang/String;F)Ldomain/Question;p
+fC:/Users/olari/git/proyectois2_jsf+hibernate/BetsJSF/src/main/java/modelo/bean/QueryQuestionsBean.javak k("1*µ
+1l	 l(~
+|
+l	 l(
+%0businessLogic.BLFacade"__id*L
+
+__unknown_file (0*. 
+modelo.bean.QueryQuestionsBean"
+
+blfacade€ý
+l	 l(3
+%1domain.Question"YbusinessLogic.BLFacade#createQuestion(Ldomain/Event;Ljava/lang/String;F)Ldomain/Question;*:
+
+__unknown_file (
+
+%0businessLogic.BLFacade*4
+
+__unknown_file (
+
+eventodomain.Event*6
+
+__unknown_file (
+
+descjava.lang.String*"
+
+__unknown_file (
+""21createQuestion(Ldomain/Event;Ljava/lang/String;F)"#
+l l(4
+
+%1domain.Question:"
+k  k(-
+eventodomain.Event:$
+k. k(:
+descjava.lang.String: 
+
+__unknown_file (
+""B" 
+modelo.bean.QueryQuestionsBeanH

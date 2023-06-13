@@ -1,0 +1,2 @@
+dataAccess.DataAccess#existQuestion(Ldomain/Event;Ljava/lang/String;)Z
+modelo.HibernateUtil#getSessionFactory()LSessionFactory;

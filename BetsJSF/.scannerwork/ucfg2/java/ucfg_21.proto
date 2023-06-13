@@ -1,0 +1,15 @@
+
++domain.Event#getEventDate()Ljava/util/Date;^
+TC:/Users/olari/git/proyectois2_jsf+hibernate/BetsJSF/src/main/java/domain/Event.javaJ J("1*˜
+1K	 K(e
+c
+K	 K(
+%0java.util.Date"__id*;
+
+__unknown_file (*
+domain.Event"
+	eventDate""
+K K(
+
+%0java.util.DateB
+domain.EventH

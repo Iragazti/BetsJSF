@@ -1,0 +1,28 @@
+
+Jmodelo.bean.QueryQuestionsBean#getEvents(Ljava/util/Date;)Ljava/util/List;p
+fC:/Users/olari/git/proyectois2_jsf+hibernate/BetsJSF/src/main/java/modelo/bean/QueryQuestionsBean.java2 2("1*ª
+13	 3(~
+|
+3	 3(
+%0businessLogic.BLFacade"__id*L
+
+__unknown_file (0*. 
+modelo.bean.QueryQuestionsBean"
+
+blfacadeöó
+3	 3(!
+%1java.util.List"BbusinessLogic.BLFacade#getEvents(Ljava/util/Date;)Ljava/util/List;*:
+
+__unknown_file (
+
+%0businessLogic.BLFacade*4
+
+__unknown_file (
+
+datejava.util.Date2getEvents(Ljava/util/Date;)""
+3 3("
+
+%1java.util.List:"
+2 2('
+datejava.util.DateB" 
+modelo.bean.QueryQuestionsBeanH

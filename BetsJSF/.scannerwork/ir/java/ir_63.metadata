@@ -1,0 +1,5 @@
+modelo.bean.QueryQuestionsBean#<init>()V
+dataAccess.DataAccess#instance-init#
+businessLogic.BLFacadeImplementation#instance-init#
+dataAccess.DataAccess#<init>()V
+businessLogic.BLFacadeImplementation#<init>(LdataAccess/DataAccessInterface;)V

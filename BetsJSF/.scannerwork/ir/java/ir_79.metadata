@@ -1,0 +1,1 @@
+modelo.bean.QueryQuestionsBean#createQuestion(Ldomain/Event;Ljava/lang/String;F)Ldomain/Question;
